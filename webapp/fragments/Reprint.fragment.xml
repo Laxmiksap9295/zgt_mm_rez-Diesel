@@ -1,0 +1,42 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog class="Dialog_ATSOURCE1 sapUiSizeCompact" xmlns:ndc="sap.ndc">
+		<customHeader>
+			<Bar class="Inbound_Bar">
+				<contentMiddle>
+					<Label text="{i18n>Reprint}" class="Inbound_Title" design="Bold"></Label>
+				</contentMiddle>
+				<contentRight>
+					<Button icon="sap-icon://decline" press="onCloseReprint" class="Inbound_NavBtn" id="id_BatchCancle"></Button>
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<content>
+			<Panel class="sapUiSizeCompact cl_PlantSettingPanel" width="auto" backgroundDesign="Transparent">
+				<f:SimpleForm editable="false" layout="ResponsiveGridLayout" labelSpanXL="5" labelSpanL="4" labelSpanM="4" labelSpanS="4"
+					adjustLabelSpan="false" emptySpanXL="2" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+					singleContainerFullSize="false" class="Inbound_SimpleForm">
+					<f:content>
+						<Label text="{i18n>Date}" design="Bold" class="sapUiTinyMarginTop Inbound_SimpleForm"></Label>
+						<DatePicker class="cl_val cl_DateCss " change="fnDateReprintChange" id="id_SelectedDate" valueFormat="YYYY-MM-dd" displayFormat="dd-MM-yyyy"
+							editable="true"/>
+						<Label text="{i18n>ResNo}" design="Bold" class="sapUiTinyMarginTop Inbound_SimpleForm"  visible="{localModel>/hideFuelFields}" ></Label>
+						<Input valueHelpRequest="fnHandleResno" id="id_ReprintResNo" valueHelpOnly="true" enabled="true" showValueHelp="true" visible="{localModel>/hideFuelFields}"></Input>
+						<Label text="{i18n>Item}" design="Bold" visible="false" class="sapUiTinyMarginTop Inbound_SimpleForm"></Label>
+						<Input class="sapUiSizeCompact" editable="false" id="id_Item" visible="false"></Input>
+						<!-- added by srinivas on 26/09/2025 for fuel issue -->
+						<Label text="{i18n>Material}" design="Bold" class="sapUiTinyMarginTop Inbound_SimpleForm" visible="{localModel>/showFuelFields}"   ></Label>
+						<Input valueHelpRequest="fnHandleMaterial" id="id_ReprintMaterial" valueHelpOnly="true" enabled="true" showValueHelp="true" visible="{localModel>/showFuelFields}" ></Input>
+					<!-- ended by srinivas on 26/09/2025 for fuel issue -->
+					</f:content>
+				</f:SimpleForm>
+			</Panel>
+		</content>
+		<beginButton>
+			<Button text="{i18n>Submit}" press="fnReprint" visible="true" id="id_ReprintSubmit" class="Inbound_BtnClr"/>
+		</beginButton>
+		<!--<endButton>-->
+		<!--	<Button id="id_BtnRejChar" text="{i18n>Text22}" press="fnSaveBatchChar" class="Inbound_BtnClr4 sapUiTinyMarginEnd" width="7rem"-->
+		<!--		visible="false"></Button>-->
+		<!--</endButton>-->
+	</Dialog>
+</core:FragmentDefinition>

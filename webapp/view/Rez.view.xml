@@ -1,0 +1,293 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ZGT_MM_REZ.controller.Rez"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:f="sap.ui.layout.form" xmlns:ndc="sap.ndc">
+	<!--<App>-->
+	<!--	<pages>-->
+	<Page showHeader="true" showFooter="true" class="cl_Bgd">
+		<customHeader>
+			<Toolbar class="cl_header">
+				<Image id="id_logo" width="3.5rem" class="sapUiSmallMarginBegin"/>
+				<ToolbarSpacer/>
+				<Label text="{i18n>Res_App}" class="cl_heText"/>
+				<ToolbarSpacer/>
+				<Image width="1.5rem" class="sapUiSmallMarginEnd" id="id_setting" press="fnSettings"/>
+			</Toolbar>
+		</customHeader>
+		<content>
+			<Toolbar class="cl_Content" width="100%" height="8rem">
+				<HBox width="32%" id="id_EmptySlff" class="sapUiTinyMargin cl_Vb cl_Hover">
+					<VBox width="35%" class="cl_VBround sapUiTinyMarginTop" alignItems="Center" alignContent="Center" justifyContent="Start">
+						<Button id="id_full4" text="{i18n>E}" press="fnExternal" class="NodreBtnClass1"></Button>
+					</VBox>
+					<VBox alignItems="Center" width="40%" alignContent="Center" justifyContent="Start" class="sapUiTinyMarginTop">
+						<!-- <Text text="{i18n>External}" class="sapUiTinyMarginTop cl_txtCnt"></Text>  -->
+					 <!-- commented text and added button for diesel issue by srinivas on 12/09/2025 -->
+				     	<Button text="{i18n>External}" class="sapUiTinyMarginTop cl_txtCnt"  press="fnExternal"></Button>
+						<!-- ended -->
+						<Text text="{i18n>Consumption}" class="sapUiTinyMarginTop cl_txtCnt2"></Text>
+					</VBox>
+					<VBox width="25%" alignItems="Center" alignContent="Center" justifyContent="Center">
+						<Image id="id_Internal" src="" class="cl_ImgCnt"></Image>
+					</VBox>
+				</HBox>
+				<ToolbarSpacer/>
+				<VBox>
+					<Text id="id_Plant" class="cl_WhiteText sapUiSmallMarginBeginEnd"/>
+					<Text id="id_Type" class="cl_WhiteText2 "/>
+				</VBox>
+				<ToolbarSpacer/>
+				<HBox width="32%" id="id_EmptySltf" class=" sapUiTinyMargin cl_Vb cl_Hover">
+					<VBox width="35%" class="cl_VBround sapUiTinyMarginTop" alignItems="Center" alignContent="Center" justifyContent="Start">
+						<Button id="id_full2" text="{i18n>I}" press="fnInternal" class="NodreBtnClass1"></Button>
+					</VBox>
+					<VBox width="40%" alignItems="Center" alignContent="Center" justifyContent="Start" class="sapUiTinyMarginTop">
+						<!-- <Text text="{i18n>Internal}" class="sapUiTinyMarginTop cl_txtCnt"></Text> -->
+						 <!-- commented text and added button for diesel issue by srinivas on 12/09/2025 -->
+						<Button text="{i18n>Internal}" class="sapUiTinyMarginTop cl_txtCnt"  press="fnInternal"></Button> 
+						 <!-- ended -->
+						<Text text="{i18n>Consumption}" class="sapUiTinyMarginTop cl_txtCnt2"></Text>
+					</VBox>
+					<VBox width="25%" alignItems="Center" alignContent="Center" justifyContent="Center">
+						<Image id="id_External" src="" class="cl_ImgCnt"></Image>
+					</VBox>
+				</HBox>
+				<!--<Button class="cl_IntBtn"></Button>-->
+				<!-- <Button  text="{i18n>Reports}" class="cl_IntBtn" press="onReports" type = "Emphasized"></Button>   added button for diesel issue by srinivas on 12/09/2025 -->
+			</Toolbar>
+			<Panel expandable="false" id="id_pExternal" expanded="true" visible="false" headerText="{i18n>External}" width="auto"
+				class=" clPanelHeader clPnl sapUiTinyMarginBegin sapUiTinyMarginEnd sapUiSmallMarginTop">
+
+<!-- added by srinivas on 15/09/2025 -->
+				
+				<headerToolbar>
+					<Toolbar>
+						<Title text="{i18n>External}" level="H2" />
+						<ToolbarSpacer />
+						<Title text="" id="id_userAuthText" level="H1"/>
+						<ToolbarSpacer />
+						 <Button icon="sap-icon://add-photo" id = "idCaptureImageExt" text = "Capture Images" type="Attention" press="onCaptureCamera" visible="{localModel>/showFuelFields}"  ></Button>				
+						<Button text="{i18n>Reports}" type="Emphasized" icon="sap-icon://excel-attachment" press="onReports" visible ="false"  />
+					</Toolbar>
+				</headerToolbar>
+			<!-- ended	 -->
+					
+				<f:SimpleForm id="SimpleFormDisplay480_12120Dual" editable="false" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+					labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2"
+					columnsL="2" columnsM="2" singleContainerFullSize="false" class="cl_FormGrid2">
+					<f:content>
+						<core:Title/>
+						<Label text="{JMExt>/WBID_NAME}" class="cl_font sapUiTinyMarginTop" visible="{JMExt>/WBID}" required="{JMExt>/WBID_REQ}"></Label>
+						<!--<HBox visible="{JMExt>/WBID}" width="100%">-->
+						<HBox visible="{JMExt>/WBID}">
+							<Input width="100%" value="{REZExtModel>/Wbid}" editable="false" enabled="true" maxLength="12" class="sapUiTinyMarginEnd cl_input"
+								valueHelpOnly="{JMExt>/WBID_HELP}" change="fnChangeScan" visible="{JMExt>/WBID}">
+								<layoutData>
+									<FlexItemData growFactor="1"/>
+								</layoutData>
+							</Input>
+							<!--<ToolbarSpacer/>-->
+							<Button icon="sap-icon://bar-code" type="Emphasized" press="onScanQRValue" tooltip="{i18n>ScanWB}"/>
+							<!--<ndc:BarcodeScannerButton class="sapUiSizeCompact cl_Barcode" visible="{JMExt>/WBID}" scanFail="fnBarcodeFailed" scanSuccess="onScanWbIdEXT"-->
+							<!--	tooltip="{i18n>ScanWB}"/>-->
+						</HBox>
+						<Label text="{JMExt>/VEHNO_NAME}" class="cl_font sapUiTinyMarginTop" visible="{JMExt>/VEHNO}" required="{JMExt>/VEHNO_REQ}"></Label>
+						<Input width="100%" value="{REZExtModel>/Vehno}" editable="{JMExt>/VEHNO_DISP}" valueHelpOnly="{JMExt>/VEHNO_HELP}" visible="{JMExt>/VEHNO}"
+							class=" cl_input" showValueHelp="{JMExt>/VEHNO_HELP}" liveChange="fnLivechangeInputTextNumSpace"></Input>
+						<Label text="{JMExt>/CNNUM_NAME}" class="cl_font sapUiTinyMarginTop" visible="{JMExt>/CNNUM}" required="{JMExt>/CNNUM_REQ}"></Label>
+						<Input width="100%" value="{REZExtModel>/Cnnum}" editable="{JMExt>/CNNUM_DISP}" valueHelpOnly="{JMExt>/CNNUM_HELP}" visible="{JMExt>/CNNUM}"
+							class=" cl_input" showValueHelp="{JMExt>/CNNUM_HELP}"></Input>
+						<Label text="{JMExt>/VEHTYP_NAME}" class="cl_font sapUiTinyMarginTop" visible="{JMExt>/VEHTYP}" required="{JMExt>/VEHTYP_REQ}"></Label>
+						<Input width="100%" value="{REZExtModel>/Vehtyp}" editable="{JMExt>/VEHTYP_DISP}" valueHelpOnly="{JMExt>/VEHTYP_HELP}"
+							visible="{JMExt>/VEHTYP}" class=" cl_input" showValueHelp="{JMExt>/VEHTYP_HELP}" valueHelpRequest="fnf4VehTyp"></Input>
+						<Label text="{JMExt>/DRIVER_MOB_NAME}" class="cl_font sapUiTinyMarginTop" visible="{JMExt>/DRIVER_MOB}" required="{JMExt>/DRIVER_MOB_REQ}"></Label>
+						<Input width="100%" value="{REZExtModel>/DriverMob}" editable="{JMExt>/DRIVER_MOB_DISP}" valueHelpOnly="{JMExt>/DRIVER_MOB_HELP}"
+							visible="{JMExt>/DRIVER_MOB}" class=" cl_input" showValueHelp="{JMExt>/DRIVER_MOB_HELP}"></Input>
+						<Label text="{JMExt>/ERFMG_NAME}" class="cl_font sapUiTinyMarginTop" visible="{JMExt>/ERFMG}" required="{JMExt>/ERFMG_REQ}"></Label>
+						<!--<Toolbar visible="{JMExt>/ERFMG}" class="cl_tbBord">-->
+						<Input width="100%" value="{REZExtModel>/Erfmg}" editable="{JMExt>/ERFMG_DISP}" valueHelpOnly="{JMExt>/ERFMG_HELP}" visible="{JMExt>/ERFMG}"
+							liveChange="fnLivechangeInputNum" class=" cl_input" showValueHelp="{JMExt>/ERFMG_HELP}"></Input>
+						<!--<VBox>-->
+						<!--<Label text="{i18n>BaseofUnit}" class="cl_font" visible="{JMExt>/ERFMG}" required="{JMExt>/ERFME_REQ}"></Label>-->
+						<Input width="100%" value="{REZExtModel>/Erfme}" editable="false" valueHelpOnly="false" visible="{JMExt>/ERFMG}" class=" cl_input"
+							maxLength="3" showValueHelp="false" liveChange="fnLivechangeInputText" placeholder="{i18n>BaseofUnit}"></Input>
+						<!--</VBox>-->
+						<!--</Toolbar>-->
+						<!--	added by Laxmikanth-->
+						<Label text="{JMExt>/UMSKZ_NAME}" class="cl_font sapUiTinyMarginTop" visible="{JMExt>/UMSKZ}" required="{JMExt>/UMSKZ_REQ}"></Label>
+						<Input width="100%" value="{REZExtModel>/umskz} - {REZExtModel>/Sgl}" editable="{JMExt>/UMSKZ_DISP}" valueHelpOnly="{JMExt>/UMSKZ_HELP}"
+							visible="{JMExt>/UMSKZ}" class=" cl_input" showValueHelp="{JMExt>/UMSKZ_HELP}" valueHelpRequest="fnf4SpecialGLIndicator"></Input>
+						<!--	ended by Laxmikanth-->
+						<core:Title/>
+						<Label text="{JMExt>/MATNR_NAME}" class="cl_font sapUiTinyMarginTop" visible="{JMExt>/MATNR}" required="{JMExt>/MATNR_REQ}"></Label>
+						<Input width="100%" value="{REZExtModel>/Matnr} - {REZExtModel>/Maktx}" editable="{JMExt>/MATNR_DISP}" valueHelpOnly="{JMExt>/MATNR_HELP}"
+							visible="{JMExt>/MATNR}" class=" cl_input" showValueHelp="{JMExt>/MATNR_HELP}" valueHelpRequest="fnf4Matnr"></Input>
+						<Label text="{JMExt>/LIFNR_NAME}" class="cl_font sapUiTinyMarginTop" visible="{JMExt>/LIFNR}" required="{JMExt>/LIFNR_REQ}"></Label>
+						<Input width="100%" value="{REZExtModel>/Lifnr} - {REZExtModel>/Litxt}" editable="{JMExt>/LIFNR_DISP}" valueHelpOnly="{JMExt>/LIFNR_HELP}" visible="{JMExt>/LIFNR}"
+							class=" cl_input" showValueHelp="{JMExt>/LIFNR_HELP}" valueHelpRequest="fnf4Lifnr"></Input>
+						<Label text="{JMExt>/CHALLAN_NAME}" class="cl_font sapUiTinyMarginTop" visible="{JMExt>/CHALLAN}" required="{JMExt>/CHALLAN_REQ}"></Label>
+						<Input width="100%" value="{REZExtModel>/Challan}" editable="{JMExt>/CHALLAN_DISP}" valueHelpOnly="{JMExt>/CHALLAN_HELP}"
+							visible="{JMExt>/CHALLAN}" class=" cl_input" showValueHelp="{JMExt>/CHALLAN_HELP}" valueHelpRequest="fnf4TransType"></Input>
+						<Label text="{JMExt>/DNAME_NAME}" class="cl_font sapUiTinyMarginTop" visible="{JMExt>/DNAME}" required="{JMExt>/DNAME_REQ}"></Label>
+						<Input width="100%" value="{REZExtModel>/Dname}" editable="{JMExt>/DNAME_DISP}" valueHelpOnly="{JMExt>/DNAME_HELP}" visible="{JMExt>/DNAME}"
+							class=" cl_input" showValueHelp="{JMExt>/DNAME_HELP}"></Input>
+						<Label text="{JMExt>/VBELN_NAME}" class="cl_font sapUiTinyMarginTop" visible="{JMExt>/VBELN}" required="{JMExt>/VBELN_REQ}"></Label>
+						<Input width="100%" value="{REZExtModel>/Vbeln}" editable="{JMExt>/VBELN_DISP}" valueHelpOnly="{JMExt>/VBELN_HELP}" visible="{JMExt>/VBELN}"
+							class=" cl_input" showValueHelp="{JMExt>/VBELN_HELP}"></Input>
+
+							<!-- added by srinivas on 15/09/2025 -->
+						<Label text="{JMExt>/LGORT_NAME}" class="cl_font sapUiTinyMarginTop" visible="{JMExt>/LGORT}" required="{JMExt>/LGORT_REQ}"></Label>
+						<Input width="100%" value="{REZExtModel>/Lgort}  - {REZExtModel>/Description}" editable="{JMExt>/LGORT_DISP}" valueHelpOnly="{JMExt>/LGORT_HELP}" visible="{JMExt>/LGORT}"
+							class=" cl_input" showValueHelp="{JMExt>/LGORT_HELP}" valueHelpRequest="fnf4Lgort"></Input>
+							<!-- ended -->
+						
+						<!--	added by Laxmikanth-->
+						<Label text="{JMExt>/NETPR_NAME}" class="cl_font sapUiTinyMarginTop" visible="{JMExt>/NETPR}" required="{JMExt>/NETPR_REQ}"></Label>
+						<Input width="100%" value="{REZExtModel>/netpr}" editable="{JMExt>/NETPR_DISP}" visible="{JMExt>/NETPR}" class=" cl_input" ></Input>
+						<!--	ended by Laxmikanth-->
+					</f:content>
+				</f:SimpleForm>
+				<!--<HBox width="100%" class="cl_VGmhbox cl_crane ">-->
+				<!--	<VBox width="5%"/>-->
+				<!--	<VBox width="45%">-->
+				<!--<Label text="{JMExt>/WBID_NAME}" class="cl_font" visible="{JMExt>/WBID}" required="{JMExt>/WBID_REQ}"></Label>-->
+				<!--<HBox visible="{JMExt>/WBID}" width="100%">-->
+				<!--<Toolbar visible="{JMExt>/WBID}" class="cl_tbBord">-->
+				<!--	<Input width="90%" value="{REZExtModel>/Wbid}" editable="{JMExt>/WBID_DISP}" maxLength="12" class="sapUiTinyMarginEnd cl_input"-->
+				<!--		valueHelpOnly="{JMExt>/WBID_HELP}" visible="{JMExt>/WBID}"></Input>-->
+				<!--<ToolbarSpacer/>-->
+				<!--	<ndc:BarcodeScannerButton class="sapUiSizeCompact cl_Barcode" visible="{JMExt>/WBID}" scanFail="fnBarcodeFailed" scanSuccess="onScanWbIdEXT"-->
+				<!--		tooltip="{i18n>ScanWB}"/>-->
+				<!--</Toolbar>-->
+				<!--<Label text="{JMExt>/VEHNO_NAME}" class="cl_font" visible="{JMExt>/VEHNO}" required="{JMExt>/VEHNO_REQ}"></Label>-->
+				<!--<Input width="90%" value="{REZExtModel>/Vehno}" editable="{JMExt>/VEHNO_DISP}" valueHelpOnly="{JMExt>/VEHNO_HELP}" visible="{JMExt>/VEHNO}"-->
+				<!--	class=" cl_input" showValueHelp="{JMExt>/VEHNO_HELP}" liveChange="fnLivechangeInputTextNumSpace"></Input>-->
+				<!--<Label text="{JMExt>/CNNUM_NAME}" class="cl_font" visible="{JMExt>/CNNUM}" required="{JMExt>/CNNUM_REQ}"></Label>-->
+				<!--<Input width="90%" value="{REZExtModel>/Cnnum}" editable="{JMExt>/CNNUM_DISP}" valueHelpOnly="{JMExt>/CNNUM_HELP}" visible="{JMExt>/CNNUM}"-->
+				<!--	class=" cl_input" showValueHelp="{JMExt>/CNNUM_HELP}"></Input>-->
+				<!--<Label text="{JMExt>/VEHTYP_NAME}" class="cl_font" visible="{JMExt>/VEHTYP}" required="{JMExt>/VEHTYP_REQ}"></Label>-->
+				<!--<Input width="90%" value="{REZExtModel>/Vehtyp}" editable="{JMExt>/VEHTYP_DISP}" valueHelpOnly="{JMExt>/VEHTYP_HELP}"-->
+				<!--	visible="{JMExt>/VEHTYP}" class=" cl_input" showValueHelp="{JMExt>/VEHTYP_HELP}" valueHelpRequest="fnf4VehTyp"></Input>-->
+				<!--<Label text="{JMExt>/DRIVER_MOB_NAME}" class="cl_font" visible="{JMExt>/DRIVER_MOB}" required="{JMExt>/DRIVER_MOB_REQ}"></Label>-->
+				<!--<Input width="90%" value="{REZExtModel>/DriverMob}" editable="{JMExt>/DRIVER_MOB_DISP}" valueHelpOnly="{JMExt>/DRIVER_MOB_HELP}"-->
+				<!--	visible="{JMExt>/DRIVER_MOB}" class=" cl_input" showValueHelp="{JMExt>/DRIVER_MOB_HELP}"></Input>-->
+				<!--<Label text="{JMExt>/ERFMG_NAME}" class="cl_font" visible="{JMExt>/ERFMG}" required="{JMExt>/ERFMG_REQ}"></Label>-->
+				<!--<Toolbar visible="{JMExt>/ERFMG}" class="cl_tbBord">-->
+				<!--	<Input width="55%" value="{REZExtModel>/Erfmg}" editable="{JMExt>/ERFMG_DISP}" valueHelpOnly="{JMExt>/ERFMG_HELP}" visible="{JMExt>/ERFMG}"-->
+				<!--		liveChange="fnLivechangeInputNum" class=" cl_input" showValueHelp="{JMExt>/ERFMG_HELP}"></Input>-->
+				<!--<VBox>-->
+				<!--<Label text="{i18n>BaseofUnit}" class="cl_font" visible="{JMExt>/ERFMG}" required="{JMExt>/ERFME_REQ}"></Label>-->
+				<!--	<Input width="33%" value="{REZExtModel>/Erfme}" editable="false" valueHelpOnly="false" visible="true" class=" cl_input" maxLength="3"-->
+				<!--		showValueHelp="false" liveChange="fnLivechangeInputText" placeholder="{i18n>BaseofUnit}"></Input>-->
+				<!--</VBox>-->
+				<!--</Toolbar>-->
+				<!--</VBox>-->
+				<!--<VBox width="45%">-->
+				<!--<Label text="{JMExt>/MATNR_NAME}" class="cl_font" visible="{JMExt>/MATNR}" required="{JMExt>/MATNR_REQ}"></Label>-->
+				<!--<Input width="90%" value="{REZExtModel>/Matnr}-{REZExtModel>/Maktx}" editable="{JMExt>/MATNR_DISP}" valueHelpOnly="{JMExt>/MATNR_HELP}"-->
+				<!--	visible="{JMExt>/MATNR}" class=" cl_input" showValueHelp="{JMExt>/MATNR_HELP}" valueHelpRequest="fnf4Matnr"></Input>-->
+				<!--<Label text="{JMExt>/LIFNR_NAME}" class="cl_font" visible="{JMExt>/LIFNR}" required="{JMExt>/LIFNR_REQ}"></Label>-->
+				<!--<Input width="90%" value="{REZExtModel>/Lifnr}" editable="{JMExt>/LIFNR_DISP}" valueHelpOnly="{JMExt>/LIFNR_HELP}" visible="{JMExt>/LIFNR}"-->
+				<!--	class=" cl_input" showValueHelp="{JMExt>/LIFNR_HELP}" valueHelpRequest="fnf4Lifnr"></Input>-->
+				<!--<Label text="{JMExt>/CHALLAN_NAME}" class="cl_font" visible="{JMExt>/CHALLAN}" required="{JMExt>/CHALLAN_REQ}"></Label>-->
+				<!--<Input width="90%" value="{REZExtModel>/Challan}" editable="{JMExt>/CHALLAN_DISP}" valueHelpOnly="{JMExt>/CHALLAN_HELP}"-->
+				<!--	visible="{JMExt>/CHALLAN}" class=" cl_input" showValueHelp="{JMExt>/CHALLAN_HELP}" valueHelpRequest="fnf4TransType"></Input>-->
+				<!--<Label text="{JMExt>/DNAME_NAME}" class="cl_font" visible="{JMExt>/DNAME}" required="{JMExt>/DNAME_REQ}"></Label>-->
+				<!--<Input width="90%" value="{REZExtModel>/Dname}" editable="{JMExt>/DNAME_DISP}" valueHelpOnly="{JMExt>/DNAME_HELP}" visible="{JMExt>/DNAME}"-->
+				<!--	class=" cl_input" showValueHelp="{JMExt>/DNAME_HELP}"></Input>-->
+				<!--<Label text="{JMExt>/VBELN_NAME}" class="cl_font" visible="{JMExt>/VBELN}" required="{JMExt>/VBELN_REQ}"></Label>-->
+				<!--<Input width="90%" value="{REZExtModel>/Vbeln}" editable="{JMExt>/VBELN_DISP}" valueHelpOnly="{JMExt>/VBELN_HELP}" visible="{JMExt>/VBELN}"-->
+				<!--	class=" cl_input" showValueHelp="{JMExt>/VBELN_HELP}"></Input>-->
+				<!--	</VBox>-->
+				<!--	<VBox width="5%"/>-->
+				<!--</HBox>-->
+			</Panel>
+			<Panel expandable="false" id="id_pInternal" expanded="true" visible="false" headerText="{i18n>Internal}" width="auto"
+				class=" clPanelHeader clPnl sapUiTinyMarginBegin sapUiTinyMarginEnd sapUiSmallMarginTop">
+				
+				<!-- added by srinivas on 15/09/2025 -->
+				<headerToolbar>
+					<Toolbar>
+						<Title text="{i18n>Internal}" level="H2" />
+						<ToolbarSpacer />
+						<Title text="" id="id_userAuthText1" level="H1"/>
+						<ToolbarSpacer />
+					   <Button icon="sap-icon://add-photo" id = "idCaptureImageInt" text = "Capture Images" type="Attention" press="onCaptureCamera" visible="{localModel>/showFuelFields}" ></Button>				
+						<Button text="{i18n>Reports}" type="Emphasized"	icon="sap-icon://excel-attachment" press="onReports" visible ="false" />
+					</Toolbar>
+				</headerToolbar>
+			<!-- ended	 -->
+				
+				<f:SimpleForm id="SimpleFormDisplay480_12120Dual2" editable="false" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+					labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2"
+					columnsL="2" columnsM="2" singleContainerFullSize="false" class="cl_FormGrid2">
+					<f:content>
+						<core:Title/>
+						<!-- added By laxmikanth-->
+						<Label text="{JMInt>/VEHOWN_NAME}" class="cl_font sapUiTinyMarginTop" visible="{JMInt>/VEHOWN}" required="{JMInt>/VEHOWN_REQ}"/>
+						<RadioButton id="id_compVehicleRadioBtn" editable="{JMInt>/COMVEH_DISP}" selected="false" text="{JMInt>/COMVEH_NAME}" class="cl_font sapUiTinyMarginTop" visible="{JMInt>/COMVEH}" required="{JMInt>/COMVEH_REQ}" valueState="Information" select="onCompVehicleSelect"/>
+						<RadioButton id="id_NoncompVehicleRadioBtn" editable="{JMInt>/NCOMVEH_DISP}" selected="false" text="{JMInt>/NCOMVEH_NAME}" class="cl_font sapUiTinyMarginTop" visible="{JMInt>/NCOMVEH}" required="{JMInt>/NCOMVEH_REQ}" valueState="Information" select="onNonCompVehicleSelect"/>
+						<Label text="{JMInt>/WBID_NAME}" class="cl_font sapUiTinyMarginTop" visible="{JMInt>/WBID}" required="{JMInt>/WBID_REQ}"></Label>
+						<HBox visible="{JMInt>/WBID}">
+						<Input width="100%" value="{REZIntModel>/Wbid}" editable="false" enabled="true" maxLength="12" class="sapUiTinyMarginEnd cl_input"
+							valueHelpOnly="{JMInt>/WBID_HELP}" change="fnChangeScan" visible="{JMInt>/WBID}">
+								<layoutData>
+									<FlexItemData growFactor="1"/>
+								</layoutData>
+							</Input>
+							<Button id="id_scanInternalVehicle" icon="sap-icon://bar-code" type="Emphasized" press="onScanQRValueIntIssuer" tooltip="{i18n>ScanWB}" visible="false"/>							
+						</HBox>
+						<!-- ended By laxmikanth-->
+						<Label text="{JMInt>/MATNR_NAME}" class="cl_font sapUiTinyMarginTop" visible="{JMInt>/MATNR}" required="{JMInt>/MATNR_REQ}"></Label>						
+						<Input width="100%" value="{REZIntModel>/Matnr} - {REZIntModel>/Maktx}" editable="{JMInt>/MATNR_DISP}" valueHelpOnly="{JMInt>/MATNR_HELP}"
+							visible="{JMInt>/MATNR}" class=" cl_input" showValueHelp="{JMInt>/MATNR_HELP}" valueHelpRequest="fnf4Matnr">
+						</Input>
+						<!-- <Button id="id_scanInternalVehicle" icon="sap-icon://bar-code" type="Emphasized" press="onScanQRValueIntIssuer" tooltip="{i18n>ScanWB}" visible="false"/> -->
+						
+						<Label text="{JMInt>/VEHTYP_NAME}" class="cl_font sapUiTinyMarginTop" visible="{JMInt>/VEHTYP}" required="{JMInt>/VEHTYP_REQ}"></Label>
+						<Input width="100%" value="{REZIntModel>/Vehtyp}" editable="{JMInt>/VEHTYP_DISP}" valueHelpOnly="{JMInt>/VEHTYP_HELP}"
+							visible="{JMInt>/VEHTYP}" class=" cl_input" liveChange="fnLivechangeInputTextNumSpace" showValueHelp="{JMInt>/VEHTYP_HELP}"
+							valueHelpRequest="fnf4VehTyp"></Input>
+						
+						<Label text="{JMInt>/ERFMG_NAME}" class="cl_font sapUiTinyMarginTop" visible="{JMInt>/ERFMG}" required="{JMInt>/ERFMG_REQ}"></Label>
+						<Input width="100%" value="{REZIntModel>/Erfmg}" editable="{JMInt>/ERFMG_DISP}" valueHelpOnly="{JMInt>/ERFMG_HELP}" visible="{JMInt>/ERFMG}"
+							liveChange="fnLivechangeInputNum" class=" cl_input" showValueHelp="{JMInt>/ERFMG_HELP}"></Input>
+						<Input width="100%" value="{REZIntModel>/Erfme}" editable="false" valueHelpOnly="{JMInt>/ERFME_HELP}" visible="{JMInt>/ERFMG}"
+							class="cl_input" maxLength="3" showValueHelp="{JMInt>/ERFME_HELP}" liveChange="fnLivechangeInputText" placeholder="{i18n>BaseofUnit}"></Input>
+						<core:Title/>
+						<Label text="{JMInt>/VEHNO_NAME}" class="cl_font sapUiTinyMarginTop" visible="{JMInt>/VEHNO}" required="{JMInt>/VEHNO_REQ}"></Label>
+						<Input width="100%" value="{REZIntModel>/Vehno}" liveChange="fnLivechangeInputTextNumSpace" editable="{JMInt>/VEHNO_DISP}"
+							valueHelpOnly="{JMInt>/VEHNO_HELP}" valueHelpRequest="fnValueHelpVeh" visible="{JMInt>/VEHNO}" class=" cl_input" showValueHelp="{JMInt>/VEHNO_HELP}"></Input>
+						<Label text="{JMInt>/DNAME_NAME}" class="cl_font sapUiTinyMarginTop" visible="{JMInt>/DNAME}" required="{JMInt>/DNAME_REQ}"></Label>
+						<Input width="100%" value="{REZIntModel>/Dname}" maxLength="30" liveChange="fnLivechangeInputTextNumSpace" editable="{JMInt>/DNAME_DISP}"
+							valueHelpOnly="{JMInt>/DNAME_HELP}" visible="{JMInt>/DNAME}" class=" cl_input" showValueHelp="{JMInt>/DNAME_HELP}"></Input>
+										<!-- added by srinivas on 15/09/2025 -->
+						<Label text="{JMInt>/LGORT_NAME}" class="cl_font sapUiTinyMarginTop" visible="{JMInt>/LGORT}" required="{JMInt>/LGORT_REQ}"></Label>
+						<Input width="100%" value="{REZIntModel>/Lgort} - {REZIntModel>/Description}" editable="{JMInt>/LGORT_DISP}" valueHelpOnly="{JMInt>/LGORT_HELP}" visible="{JMInt>/LGORT}"
+							class=" cl_input" showValueHelp="{JMInt>/LGORT_HELP}" valueHelpRequest="fnf4Lgort"></Input>
+							<!-- ended -->
+							 <!-- added By laxmikanth-->
+						<!-- <Label text="{JMInt>/SAKNR_NAME}" class="cl_font sapUiTinyMarginTop" visible="{JMInt>/SAKNR}" required="{JMInt>/SAKNR_REQ}"></Label>
+						<Input value="{REZIntModel>/saknr}" class="cl_font sapUiTinyMarginTop" visible="{JMInt>/SAKNR}" required="{JMInt>/SAKNR_REQ}" editable="{JMInt>/SAKNR_DISP}" ></Input> -->
+
+						<Label text="{JMInt>/KOSTL_NAME}" class="cl_font sapUiTinyMarginTop" visible="{JMInt>/KOSTL}" required="{JMInt>/KOSTL_REQ}"></Label>
+						<Input value="{REZIntModel>/Kostl}" class="cl_font sapUiTinyMarginTop" visible="{JMInt>/KOSTL}" required="{JMInt>/KOSTL_REQ}" editable="{JMInt>/KOSTL_DISP}" ></Input>
+					</f:content>
+				</f:SimpleForm>
+			</Panel>
+		</content>
+		<footer>
+			<Toolbar class="cl_Vgtb cl_footer">
+				
+				<Button text="{i18n>Reprint}" icon="sap-icon://print" iconFirst="false" id="id_BtnReprint" type="Emphasized"
+					class="sapUiSizeCompact sapUiTinyMarginBegin" press="fnOpenReprint"></Button>
+				<ToolbarSpacer/>
+				<Button text="{i18n>Reports}" id="id_reportsBtn" type="Emphasized" icon="sap-icon://excel-attachment" press="onReports" visible ="false"  />
+				<ToolbarSpacer/>
+				<Button text="{i18n>Submit}" icon="sap-icon://accept" iconFirst="false" id="id_BtnSubmit"
+					class="sapUiSizeCompact sapUiTinyMarginEnd GRheaderBtnPosted" press="fnSubmit"></Button>
+				
+			</Toolbar>
+		</footer>
+	</Page>
+	<!--	</pages>-->
+	<!--</App>-->
+</mvc:View>

@@ -1,0 +1,2 @@
+sap.ui.define(["sap/ui/core/UIComponent","sap/ui/Device","ZGT_MM_REZ/model/models","ZGT_MM_REZ/model/Formatter"],function(e,t,i,o){"use strict";return e.extend("ZGT_MM_REZ.Component",{metadata:{manifest:"json"},init:function(){e.prototype.init.apply(this,arguments);this.getRouter().initialize();this.setModel(i.createDeviceModel(),"device")}})});
+//# sourceMappingURL=Component.js.map

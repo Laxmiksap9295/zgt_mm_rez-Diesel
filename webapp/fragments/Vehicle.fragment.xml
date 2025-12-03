@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title="{i18n>ChooseVehicle}" items="{JmVeh>/}" class="sapUiPopupWithPadding Dialog_ATSOURCE1" confirm="fn_ConfirmVeh"
+		cancel="fnCancel" liveChange="fnFilterVeh" search="fnFilterVeh">
+		<ObjectListItem title="{JmVeh>Vehno}">
+			<attributes>
+				<!--<ObjectAttribute text="{Vendordialog>Mcod1}" class="WordWrapClass"></ObjectAttribute>-->
+				<ObjectAttribute title="{i18n>Vehtyp}" text="{JmVeh>Vehtyp}" class="WordWrapClass"></ObjectAttribute>
+				<ObjectAttribute title="{i18n>Dname}" text="{JmVeh>Dname}" class="WordWrapClass"></ObjectAttribute>
+				<ObjectAttribute title="{i18n>Kostl}" text="{JmVeh>Kostl}" class="WordWrapClass"></ObjectAttribute>
+			</attributes>
+		</ObjectListItem>
+	</SelectDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,384 @@
+/* Enter your custom styles here */
+
+.cl_header {
+    border-bottom: 0px;
+    background-color: #000000 !important;
+    /*height:3rem !important;*/
+}
+
+.cl_heText {
+    font-family: segoe ui Semibold !important;
+    font-stretch: normal;
+    font-style: normal;
+    color: #ffffff !important;
+    font-size: 17px!important;
+}
+
+.cl_WhiteText {
+    font-family: segoe ui Semibold !important;
+    font-stretch: normal;
+    font-style: normal;
+    color: #ffffff !important;
+    font-size: 20px!important;
+    /*margin-left: 2rem !important;*/
+    text-decoration: underline;
+}
+
+.cl_WhiteText2 {
+    font-family: segoe ui Semibold !important;
+    font-stretch: normal;
+    font-style: normal;
+    color: #ffffff !important;
+    font-size: 19px!important;
+    /*margin-left:2rem !important;*/
+}
+
+.cl_Content {
+    background-image: linear-gradient(to top, #a0c800, #85a80a 54%, #698714);
+}
+
+.Cl_BgdImg {
+    background: white !important;
+    /*background: url('../Images/Gasoline.jpg') no-repeat center center fixed !important;*/
+    /*background-size: 100% 100% !important;*/
+    /*-webkit-background-size: cover;*/
+    /*-moz-background-size: cover;*/
+    /*-o-background-size: cover;*/
+    /*background-size: cover;*/
+}
+
+.cl_Vb {
+    background: white!important;
+    /* border-right: 3px solid #2525a3; */
+    border-left: 4px solid #bcd541;
+    height: 6rem;
+    box-shadow: 0px 1px 5px 0.4px rgb(87 96 186 / 50%);
+    border-radius: 7px;
+}
+
+.cl_Hover:hover {
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+.NodreBtnClass1 {
+    height: 3rem;
+    width: 3rem;
+}
+
+.NodreBtnClass1 .sapMBtnIcon {
+    margin-top: 0.8rem;
+    height: 1.3rem;
+    width: 1.3rem;
+}
+
+.NodreBtnClass1 .sapMBtnInner {
+    border: 5px solid #4cae50;
+    /* height: 4.5rem; */
+    /* width: auto; */
+    /* height: auto; */
+    width: 4rem;
+    height: 4rem;
+    /* font-size: revert; */
+    white-space: nowrap;
+    outline: white !important;
+    border-radius: 62px;
+    background-color: white !important;
+}
+
+.NodreBtnClass1 .sapMBtnContent {
+    color: #fe0202;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 3.5rem;
+    font-family: monospace;
+}
+
+.cl_txtCnt {
+    font-family: segoe ui Semibold !important;
+    color: #000000;
+    font-size: large;
+    border-bottom: 2px solid;
+}
+
+.cl_txtCntEF {
+    font-family: segoe ui Semibold !important;
+    color: #2780d0;
+    font-size: large;
+}
+
+.cl_txtCnt2 {
+    font-family: segoe ui Semibold !important;
+    color: rebeccapurple;
+}
+
+.cl_ImgCnt {
+    width: 41px;
+}
+
+.cl_BgSelection {
+    background: #fafad2 !important;
+}
+
+.Dialog_ATSOURCE1 .sapMIBar.sapMHeader-CTX {
+    /*background: #618100!important;*/
+    /*background: #002281!important;*/
+    background: #3c4d5d !important;
+    /*background: linear-gradient(to bottom, #010d6f, #0462b5) !important;*/
+}
+
+.Dialog_ATSOURCE1>.sapMDialogSection {
+    overflow-x: hidden !important;
+}
+
+.Dialog_ATSOURCE1 .sapMSFF {
+    border: 1px solid #b1a8a8!important;
+    border-radius: 23px;
+}
+
+.Dialog_ATSOURCE1 .sapMSLIDescIcon>.sapMLIBContent {
+    padding: 0rem;
+}
+
+.Dialog_ATSOURCE1 .sapMCbBg {
+    border-radius: 50%!important;
+    border: 1px solid #4c6d4c;
+}
+
+.Dialog_ATSOURCE1 .sapMCbMarkChecked {
+    background: #abe2ab;
+    border: 1px solid #70b170!important;
+}
+
+.Dialog_ATSOURCE1 .sapMIBar-CTX .sapMTitle {
+    color: #fff!important;
+    font-size: 16px!important;
+    text-shadow: none;
+    font-family: segoe ui Semibold!important;
+}
+
+.Dialog_ATSOURCE1 .sapMIBar-CTX .sapMLabel {
+    color: #fff!important;
+    font-size: 16px!important;
+    text-shadow: none;
+    font-family: segoe ui Semibold!important;
+}
+
+.Dialog_ATSOURCE1 .sapMLIBFocusable:focus {
+    outline: 0px solid red;
+    outline-offset: -1px;
+}
+
+.Dialog_ATSOURCE1,
+.sapMSF {
+    background: transparent;
+    padding: 0.25rem 0;
+    outline: 0px solid !important;
+}
+
+.clPanelHeader.sapMPanel>.sapMPanelHdr {
+    border-bottom: 1px solid #ccc;
+    height: 1.5rem;
+}
+
+.clPanelHeader .sapMPanelHdr {
+    font-family: segoe ui!important;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.8;
+    letter-spacing: 0.9px;
+    text-align: left;
+    color: #464646;
+    font-size: 20px;
+    border-bottom: 1px solid #9fc600;
+}
+
+.clPnl .sapMPanelContent {
+    padding: 0.4rem !important;
+    border-bottom: 0rem !important;
+    overflow: hidden;
+    /*margin-bottom: 0rem !important;*/
+}
+
+.cl_VGmhbox {
+    /*background-color: #f0f8ff00;*/
+    background-color: #fbf6d4a6;
+    padding: 7px;
+    border-radius: 4px;
+    border: 0px solid #7a61a3cc;
+}
+
+.cl_font {
+    font-family: segoe ui Semibold!important;
+    color: black;
+}
+
+.cl_Vgtb {
+    border-bottom: none!important;
+}
+
+.cl_footer {
+    /*background-color: transparent!important;*/
+    border-top: none!important;
+    background-color: #515155!important
+}
+
+.NodreBtnClass {
+    height: 3rem;
+    width: 3rem;
+}
+
+.NodreBtnClass .sapMBtnIcon {
+    margin-top: 0.8rem;
+    height: 1.3rem;
+    width: 1.3rem;
+}
+
+.NodreBtnClass .sapMBtnInner {
+    border: 5px solid #ff4c04;
+    /* height: 4.5rem; */
+    /* width: auto; */
+    /* height: auto; */
+    width: 4rem;
+    height: 4rem;
+    /* font-size: revert; */
+    white-space: nowrap;
+    outline: white !important;
+    border-radius: 62px;
+    background-color: #ffffff !important;
+}
+
+.NodreBtnClass .sapMBtnContent {
+    color: #ff4c04;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 3.5rem;
+}
+
+.GRheaderBtnPosted .sapMBtnInner {
+    background-image: none;
+    background-color: #234fab!important;
+    border-color: #222a96!important;
+    color: #ffffff !important;
+    text-shadow: none!important;
+}
+
+.GRheaderBtnPosted {
+    border-radius: 0px !important;
+    /*margin-top: 2% !important;*/
+    /*margin-left: -4% !important;*/
+    /*margin-right: 0px !important;*/
+}
+
+.GRheaderBtnPosted .sapMBtnIcon {
+    color: #ffffff !important;
+}
+
+.GRheaderBtnPosted .sapMBtnInner {
+    font-family: segoe ui Semibold!important;
+}
+
+.GRheaderBtnBcd .sapMBtnInner {
+    background-image: none;
+    background-color: #23ab59!important;
+    border-color: #23ab59!important;
+    color: #ffffff !important;
+    text-shadow: none!important;
+}
+
+.GRheaderBtnBcd {
+    border-radius: 0px !important;
+    margin-top: 48% !important;
+    margin-left: -203% !important;
+    /*margin-right: 0px !important;*/
+}
+
+.GRheaderBtnBcd .sapMBtnIcon {
+    color: #ffffff !important;
+}
+
+.GRheaderBtnBcd .sapMBtnInner {
+    font-family: segoe ui Semibold!important;
+}
+
+.GRheaderBtnScan .sapMBtnInner {
+    background-image: none;
+    background-color: #ffffff!important;
+    border-color: #000000!important;
+    /*color: #000000 !important;*/
+    text-shadow: none!important;
+}
+
+.GRheaderBtnScan {
+    border-radius: 0px !important;
+    /*margin-top: 2% !important;*/
+    /*margin-left: -4% !important;*/
+    /*margin-right: 0px !important;*/
+}
+
+.GRheaderBtnScan .sapMBtnIcon {
+    /*color: #000000 !important;*/
+    margin: 6px !important;
+    width: 24px;
+}
+
+.GRheaderBtnScan .sapMBtnInner {
+    font-family: segoe ui Semibold!important;
+    font-color: black !important;
+}
+
+.cl_Barcode .sapMBtn {
+    margin-right: 61px !important;
+    margin-top: 1rem !important;
+}
+
+.cl_tbBord {
+    border-bottom: none !important;
+    margin-left: -1% !important;
+}
+
+.cl_PlantSettingPanel .sapMPanelContent {
+    /*padding: 1rem;*/
+    width: 30rem;
+    box-sizing: border-box;
+    overflow: auto;
+    white-space: normal;
+}
+
+.Inbound_NavBtn.sapMBtn>.sapMBtnDefault>.sapMBtnIcon {
+    color: #ffffff !important;
+}
+
+.cl_FormGrid2 .sapUiFormResGrid.sapUiFormBackgrTranslucent>div {
+    /*background-color: rgba(255, 255, 255, 0);*/
+    background-color: #fbf6d4a6 !important;
+    /*background-color: #f5e7f2 !important;*/
+    /*background-color: #464646 !important;*/
+    margin-top: -1.5rem !important;
+    /*margin-left: -6rem;*/
+    /*margin-left: -1.5rem;*/
+}
+
+.Dialog_ATREZ .sapMLIB.sapMObjLItem {
+    padding: 1rem;
+    width: 25rem;
+}
+
+.cl_ObjList,
+.sapMLIB.sapMObjLItem {
+    padding: 1rem;
+    width: 25rem;
+}
+
+
+.cl_FilterText {
+    font-family: segoe ui Semibold !important;
+    font-stretch: normal;
+    font-style: normal;
+    color: #306cc6 !important;
+    font-size: 20px!important;
+    /*margin-left: 2rem !important;*/
+    text-decoration: underline;
+}

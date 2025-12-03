@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+			<SelectDialog title="{i18n>Choose special GL Indecator}" class="Dialog_ATSOURCE1 sapUiPopupWithPadding" items="{JMSGLIndecator>/}" search="fnSGLIndecator" liveChange="fnSGLIndecator"
+		confirm="fnSGLIndecatorConfirm" cancel="fnSGLIndecatorCancel">
+		<StandardListItem title="{JMSGLIndecator>Sgl}" description="{JMSGLIndecator>Sgl}"/>
+	</SelectDialog>
+	
+</core:FragmentDefinition>

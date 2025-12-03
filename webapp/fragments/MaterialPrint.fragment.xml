@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title="{i18n>ChooseYourRez}" class="Dialog_ATSOURCE1 Dialog_ATREZ sapUiPopupWithPadding" items="{JMMaterialRez>/}" search="fnFilterMaterialRez"
+		liveChange="fnFilterMaterialRez" confirm="fn_ConfirmMaterialRez" cancel="fnCancel">
+		<ObjectListItem title="{JMMaterialRez>Vehno}" class="cl_ObjList">
+			<attributes>
+				<ObjectAttribute title="{i18n>Material}" text="{path: 'JMMaterialRez>Matno',formatter :'ZGT_MM_REZ.model.Formatter.fnLeadingZeros'}"
+					class="WordWrapClass"></ObjectAttribute>		
+			</attributes>
+		</ObjectListItem>
+	</SelectDialog>
+</core:FragmentDefinition>

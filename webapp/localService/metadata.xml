@@ -1,0 +1,243 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZGW_GT_MM_DIESEL_RES_SRV" xml:lang="en" sap:schema-version="1">
+            <EntityType Name="F4Parameter" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Werks"/>
+                </Key>
+                <Property Name="Challanx" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vehtypx" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Lifnrx" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Matnrx" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Plant" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="F4ChallanNav" Relationship="ZGW_GT_MM_DIESEL_RES_SRV.F4ChallanAss" FromRole="FromRole_F4ChallanAss" ToRole="ToRole_F4ChallanAss"/>
+                <NavigationProperty Name="F4MaterialNav" Relationship="ZGW_GT_MM_DIESEL_RES_SRV.F4MaterialAss" FromRole="FromRole_F4MaterialAss" ToRole="ToRole_F4MaterialAss"/>
+                <NavigationProperty Name="F4TransporterNav" Relationship="ZGW_GT_MM_DIESEL_RES_SRV.F4TransporterAss" FromRole="FromRole_F4TransporterAss" ToRole="ToRole_F4TransporterAss"/>
+                <NavigationProperty Name="F4VehicleTypeNav" Relationship="ZGW_GT_MM_DIESEL_RES_SRV.F4VehicleTypeAss" FromRole="FromRole_F4VehicleTypeAss" ToRole="ToRole_F4VehicleTypeAss"/>
+                <NavigationProperty Name="F4ReturnNav" Relationship="ZGW_GT_MM_DIESEL_RES_SRV.F4ReturnAss" FromRole="FromRole_F4ReturnAss" ToRole="ToRole_F4ReturnAss"/>
+            </EntityType>
+            <EntityType Name="F4Challan" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Challan"/>
+                </Key>
+                <Property Name="Challan" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Challan Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="F4VehicleType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Vehtype"/>
+                </Key>
+                <Property Name="Vehtype" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Vehicle type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="F4Transporter" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Werks"/>
+                    <PropertyRef Name="Lifnr"/>
+                </Key>
+                <Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Plant" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Lifnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Vendor" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Name1" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Stcd2" Type="Edm.String" Nullable="false" MaxLength="11" sap:unicode="false" sap:label="Tax Number 2" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Stcd3" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="Tax Number 3" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Return" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Type"/>
+                    <PropertyRef Name="Id"/>
+                    <PropertyRef Name="Number"/>
+                    <PropertyRef Name="Message"/>
+                </Key>
+                <Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Message type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Message Class" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Number" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Message number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="220" sap:unicode="false" sap:label="Message text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LogNo" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Log number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LogMsgNo" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Message no." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MessageV1" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MessageV2" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MessageV3" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MessageV4" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Parameter" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Parameter Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Row" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Parameter line" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Field" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Field name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="System" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Logical system" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="F4Material" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Matnr"/>
+                </Key>
+                <Property Name="Matnr" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="Material" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Matkl" Type="Edm.String" Nullable="false" MaxLength="9" sap:unicode="false" sap:label="Material Group" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Gewei" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Weight unit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Meins" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Base Unit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Mtart" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Material Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Maktx" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="GetFieldIn" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Werks"/>
+                    <PropertyRef Name="Prtyp"/>
+                </Key>
+                <Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Plant" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Prtyp" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Sub-Process Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="GetFieldOutNav" Relationship="ZGW_GT_MM_DIESEL_RES_SRV.GetFieldOutAss" FromRole="FromRole_GetFieldOutAss" ToRole="ToRole_GetFieldOutAss"/>
+                <NavigationProperty Name="GetFieldReturnNav" Relationship="ZGW_GT_MM_DIESEL_RES_SRV.GetFieldReturnAss" FromRole="FromRole_GetFieldReturnAss" ToRole="ToRole_GetFieldReturnAss"/>
+            </EntityType>
+            <EntityType Name="GetFieldOut" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Mandt"/>
+                    <PropertyRef Name="Appl"/>
+                    <PropertyRef Name="Bukrs"/>
+                    <PropertyRef Name="Spart"/>
+                    <PropertyRef Name="Ekorg"/>
+                    <PropertyRef Name="Vkorg"/>
+                    <PropertyRef Name="ProcTyp"/>
+                    <PropertyRef Name="Prctr"/>
+                    <PropertyRef Name="Werks"/>
+                </Key>
+                <Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Client" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Appl" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Application" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Spart" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Division" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ekorg" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Purchasing Org." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vkorg" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Sales Org." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ProcTyp" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Sub-Process Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Prctr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Profit Center" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Plant" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Matnr" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="Material" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Matkl" Type="Edm.String" Nullable="false" MaxLength="9" sap:unicode="false" sap:label="Material Group" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Fldtyp" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Header or Item field" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Fld" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Field" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Fname" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Field Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Hide" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Hidden" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Disp" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Display" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Req" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Required entry" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Opt" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Optional entry" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Typ" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Data Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FldOrder" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Field Order" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="HelpType" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Dropdown or F4" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Cname" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Field Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ernam" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Created by" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Erdat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Created on" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Aenam" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Changed by" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Aedat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Changed on" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="GetInput" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Wbid"/>
+                    <PropertyRef Name="Werks"/>
+                </Key>
+                <Property Name="Wbid" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Weighbridge ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Plant" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="GetOutputNav" Relationship="ZGW_GT_MM_DIESEL_RES_SRV.GetOutputNav" FromRole="FromRole_GetOutputNav" ToRole="ToRole_GetOutputNav"/>
+                <NavigationProperty Name="GetReturnNav" Relationship="ZGW_GT_MM_DIESEL_RES_SRV.GetReturnAss" FromRole="FromRole_GetReturnAss" ToRole="ToRole_GetReturnAss"/>
+            </EntityType>
+            <EntityType Name="GetOutput" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Wbid"/>
+                </Key>
+                <Property Name="Wbid" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Weighbridge ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ajahr" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Year" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Plant" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Direction" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Inbound/Outbound" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Wtype" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Weighbridge Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vehno" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Vehicle Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vehtyp" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Vehicle type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Lifnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Transport Vendor Cod" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vbeln" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Delivery" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="F4MaterialAss" sap:content-version="1">
+                <End Type="ZGW_GT_MM_DIESEL_RES_SRV.F4Parameter" Multiplicity="0..1" Role="FromRole_F4MaterialAss"/>
+                <End Type="ZGW_GT_MM_DIESEL_RES_SRV.F4Material" Multiplicity="*" Role="ToRole_F4MaterialAss"/>
+            </Association>
+            <Association Name="F4TransporterAss" sap:content-version="1">
+                <End Type="ZGW_GT_MM_DIESEL_RES_SRV.F4Parameter" Multiplicity="0..1" Role="FromRole_F4TransporterAss"/>
+                <End Type="ZGW_GT_MM_DIESEL_RES_SRV.F4Transporter" Multiplicity="*" Role="ToRole_F4TransporterAss"/>
+            </Association>
+            <Association Name="F4VehicleTypeAss" sap:content-version="1">
+                <End Type="ZGW_GT_MM_DIESEL_RES_SRV.F4Parameter" Multiplicity="0..1" Role="FromRole_F4VehicleTypeAss"/>
+                <End Type="ZGW_GT_MM_DIESEL_RES_SRV.F4VehicleType" Multiplicity="*" Role="ToRole_F4VehicleTypeAss"/>
+            </Association>
+            <Association Name="F4ReturnAss" sap:content-version="1">
+                <End Type="ZGW_GT_MM_DIESEL_RES_SRV.F4Parameter" Multiplicity="0..1" Role="FromRole_F4ReturnAss"/>
+                <End Type="ZGW_GT_MM_DIESEL_RES_SRV.Return" Multiplicity="*" Role="ToRole_F4ReturnAss"/>
+            </Association>
+            <Association Name="F4ChallanAss" sap:content-version="1">
+                <End Type="ZGW_GT_MM_DIESEL_RES_SRV.F4Parameter" Multiplicity="0..1" Role="FromRole_F4ChallanAss"/>
+                <End Type="ZGW_GT_MM_DIESEL_RES_SRV.F4Challan" Multiplicity="*" Role="ToRole_F4ChallanAss"/>
+            </Association>
+            <Association Name="GetFieldOutAss" sap:content-version="1">
+                <End Type="ZGW_GT_MM_DIESEL_RES_SRV.GetFieldIn" Multiplicity="0..1" Role="FromRole_GetFieldOutAss"/>
+                <End Type="ZGW_GT_MM_DIESEL_RES_SRV.GetFieldOut" Multiplicity="*" Role="ToRole_GetFieldOutAss"/>
+            </Association>
+            <Association Name="GetFieldReturnAss" sap:content-version="1">
+                <End Type="ZGW_GT_MM_DIESEL_RES_SRV.GetFieldIn" Multiplicity="0..1" Role="FromRole_GetFieldReturnAss"/>
+                <End Type="ZGW_GT_MM_DIESEL_RES_SRV.Return" Multiplicity="*" Role="ToRole_GetFieldReturnAss"/>
+            </Association>
+            <Association Name="GetOutputNav" sap:content-version="1">
+                <End Type="ZGW_GT_MM_DIESEL_RES_SRV.GetInput" Multiplicity="0..1" Role="FromRole_GetOutputNav"/>
+                <End Type="ZGW_GT_MM_DIESEL_RES_SRV.GetOutput" Multiplicity="*" Role="ToRole_GetOutputNav"/>
+            </Association>
+            <Association Name="GetReturnAss" sap:content-version="1">
+                <End Type="ZGW_GT_MM_DIESEL_RES_SRV.GetInput" Multiplicity="0..1" Role="FromRole_GetReturnAss"/>
+                <End Type="ZGW_GT_MM_DIESEL_RES_SRV.Return" Multiplicity="*" Role="ToRole_GetReturnAss"/>
+            </Association>
+            <EntityContainer Name="ZGW_GT_MM_DIESEL_RES_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="F4ParameterSet" EntityType="ZGW_GT_MM_DIESEL_RES_SRV.F4Parameter" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="F4ChallanSet" EntityType="ZGW_GT_MM_DIESEL_RES_SRV.F4Challan" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="F4VehicleTypeSet" EntityType="ZGW_GT_MM_DIESEL_RES_SRV.F4VehicleType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="F4TransporterSet" EntityType="ZGW_GT_MM_DIESEL_RES_SRV.F4Transporter" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ReturnSet" EntityType="ZGW_GT_MM_DIESEL_RES_SRV.Return" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="F4MaterialSet" EntityType="ZGW_GT_MM_DIESEL_RES_SRV.F4Material" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="GetFieldInSet" EntityType="ZGW_GT_MM_DIESEL_RES_SRV.GetFieldIn" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="GetFieldOutSet" EntityType="ZGW_GT_MM_DIESEL_RES_SRV.GetFieldOut" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="GetInputSet" EntityType="ZGW_GT_MM_DIESEL_RES_SRV.GetInput" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="GetOutputSet" EntityType="ZGW_GT_MM_DIESEL_RES_SRV.GetOutput" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="F4ChallanAssSet" Association="ZGW_GT_MM_DIESEL_RES_SRV.F4ChallanAss" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="F4ParameterSet" Role="FromRole_F4ChallanAss"/>
+                    <End EntitySet="F4ChallanSet" Role="ToRole_F4ChallanAss"/>
+                </AssociationSet>
+                <AssociationSet Name="F4ReturnAssSet" Association="ZGW_GT_MM_DIESEL_RES_SRV.F4ReturnAss" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="F4ParameterSet" Role="FromRole_F4ReturnAss"/>
+                    <End EntitySet="ReturnSet" Role="ToRole_F4ReturnAss"/>
+                </AssociationSet>
+                <AssociationSet Name="GetOutputNavSet" Association="ZGW_GT_MM_DIESEL_RES_SRV.GetOutputNav" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="GetInputSet" Role="FromRole_GetOutputNav"/>
+                    <End EntitySet="GetOutputSet" Role="ToRole_GetOutputNav"/>
+                </AssociationSet>
+                <AssociationSet Name="F4TransporterAssSet" Association="ZGW_GT_MM_DIESEL_RES_SRV.F4TransporterAss" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="F4ParameterSet" Role="FromRole_F4TransporterAss"/>
+                    <End EntitySet="F4TransporterSet" Role="ToRole_F4TransporterAss"/>
+                </AssociationSet>
+                <AssociationSet Name="F4MaterialAssSet" Association="ZGW_GT_MM_DIESEL_RES_SRV.F4MaterialAss" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="F4ParameterSet" Role="FromRole_F4MaterialAss"/>
+                    <End EntitySet="F4MaterialSet" Role="ToRole_F4MaterialAss"/>
+                </AssociationSet>
+                <AssociationSet Name="GetFieldOutAssSet" Association="ZGW_GT_MM_DIESEL_RES_SRV.GetFieldOutAss" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="GetFieldInSet" Role="FromRole_GetFieldOutAss"/>
+                    <End EntitySet="GetFieldOutSet" Role="ToRole_GetFieldOutAss"/>
+                </AssociationSet>
+                <AssociationSet Name="GetReturnAssSet" Association="ZGW_GT_MM_DIESEL_RES_SRV.GetReturnAss" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="GetInputSet" Role="FromRole_GetReturnAss"/>
+                    <End EntitySet="ReturnSet" Role="ToRole_GetReturnAss"/>
+                </AssociationSet>
+                <AssociationSet Name="GetFieldReturnAssSet" Association="ZGW_GT_MM_DIESEL_RES_SRV.GetFieldReturnAss" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="GetFieldInSet" Role="FromRole_GetFieldReturnAss"/>
+                    <End EntitySet="ReturnSet" Role="ToRole_GetFieldReturnAss"/>
+                </AssociationSet>
+                <AssociationSet Name="F4VehicleTypeAssSet" Association="ZGW_GT_MM_DIESEL_RES_SRV.F4VehicleTypeAss" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="F4ParameterSet" Role="FromRole_F4VehicleTypeAss"/>
+                    <End EntitySet="F4VehicleTypeSet" Role="ToRole_F4VehicleTypeAss"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link
+                xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZGW_GT_MM_DIESEL_RES_SRV/$metadata"/>
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZGW_GT_MM_DIESEL_RES_SRV/$metadata"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>

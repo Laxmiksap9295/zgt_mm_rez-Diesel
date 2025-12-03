@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<!--<SelectDialog title="{i18n>ChooseYourMatnr}" class="Dialog_ATSOURCE1 sapUiPopupWithPadding" items="{JMMatnr>/}" search="fnFilterMatnr" liveChange="fnFilterMatnr"-->
+	<!--	confirm="fn_ConfirmMatnr" cancel="fnCancel">-->
+	<!--<StandardListItem title="{JMMatnr>Matnr}" info="{JMMatnr>Maktx}"/>-->
+	<!--	<StandardListItem title="{path: 'JMMatnr>Matnr',formatter :'ZGT_MM_REZ.model.Formatter.fnLeadingZeros'}" info="{JMMatnr>Maktx}"/>-->
+	<!--</SelectDialog>-->
+	<SelectDialog title="{i18n>ChooseYourMatnr}" items="{JMMatnr>/}" class="sapUiPopupWithPadding Dialog_ATSOURCE1" confirm="fn_ConfirmMatnr"
+		cancel="fnCancel" liveChange="fnFilterMatnr" search="fnFilterMatnr">
+		<ObjectListItem title="{path: 'JMMatnr>Matnr',formatter :'ZGT_MM_REZ.model.Formatter.fnLeadingZeros'}" intro="{JMMatnr>Maktx}">
+			<attributes>
+				<!--<ObjectAttribute text="{Vendordialog>Mcod1}" class="WordWrapClass"></ObjectAttribute>-->
+				<ObjectAttribute title="{i18n>Meins}" text="{JMMatnr>Meins}" class="WordWrapClass"></ObjectAttribute>
+				<ObjectAttribute title="{i18n>Mtart}" text="{JMMatnr>Mtart}" class="WordWrapClass"></ObjectAttribute>
+				<!-- added by srinivas for fuel issue -->
+				<ObjectAttribute title="{i18n>MaxLiters}" text="{JMMatnr>MaxLiters}" class="WordWrapClass"   visible="{localModel>/showFuelFields}"  ></ObjectAttribute>
+			</attributes>
+		</ObjectListItem>
+	</SelectDialog>
+</core:FragmentDefinition>

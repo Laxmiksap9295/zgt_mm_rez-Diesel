@@ -1,0 +1,107 @@
+{
+    "resources": [
+        {
+            "name": "neo-app.json"
+        },
+        {
+            "name": ".user.project.json"
+        },
+        {
+            "name": "index.html"
+        },
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": ".project.json"
+        },
+        {
+            "name": "localService/ZGW_GT_MM_DIESEL_RES_SRV/metadata.xml"
+        },
+        {
+            "name": "localService/metadata.xml"
+        },
+        {
+            "name": "resources.json",
+            "merged": true
+        },
+        {
+            "name": "Images/OnBoard.png"
+        },
+        {
+            "name": "Images/Internal.png"
+        },
+        {
+            "name": "Images/External.png"
+        },
+        {
+            "name": "Images/setting.png"
+        },
+        {
+            "name": "Images/barcode.png"
+        },
+        {
+            "name": "Images/Fuel.jpg"
+        },
+        {
+            "name": "Images/Gasoline.jpg"
+        },
+        {
+            "name": "view/App.view.xml"
+        },
+        {
+            "name": "view/Rez.view.xml"
+        },
+        {
+            "name": "i18n/i18n_fr.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "fragments/Material.fragment.xml"
+        },
+        {
+            "name": "fragments/Plant.fragment.xml"
+        },
+        {
+            "name": "fragments/Vehicle.fragment.xml"
+        },
+        {
+            "name": "fragments/Rez.fragment.xml"
+        },
+        {
+            "name": "fragments/Reprint.fragment.xml"
+        },
+        {
+            "name": "ScannerAppLibrary/index.min.js"
+        },
+        {
+            "name": "ScannerAppLibrary/quagga.min.js"
+        },
+        {
+            "name": "css/style.css"
+        },
+        {
+            "name": "model/models.js"
+        },
+        {
+            "name": "model/Formatter.js"
+        },
+        {
+            "name": "controller/Rez.controller.js"
+        },
+        {
+            "name": "controller/App.controller.js"
+        },
+        {
+            "name": "Component-preload.js",
+            "merged": true
+        }
+    ]
+}

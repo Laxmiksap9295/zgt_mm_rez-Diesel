@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title="{i18n>ChooseYourRez}" class="Dialog_ATSOURCE1 Dialog_ATREZ sapUiPopupWithPadding" items="{JMRez>/}" search="fnFilterRez"
+		liveChange="fnFilterRez" confirm="fn_ConfirmRez" cancel="fnCancel">
+		<ObjectListItem title="{JMRez>Vehno}" class="cl_ObjList">
+			<attributes>
+				<ObjectAttribute title="{i18n>ResNo}" text="{path: 'JMRez>Rsnum',formatter :'ZGT_MM_REZ.model.Formatter.fnLeadingZeros'}"
+					class="WordWrapClass"></ObjectAttribute>
+				<ObjectAttribute text="{JMRez>Sgtxt}" class="WordWrapClass"></ObjectAttribute>
+			</attributes>
+			<firstStatus>
+				<ObjectStatus text="{JMRez>Rspos}" state="None" class="objectStatus"/>
+			</firstStatus>
+			<!--<secondStatus>-->
+			<!--	<ObjectStatus text="{JMRez>BUTXT}" state="Success" class="objectStatus"/>-->
+			<!--</secondStatus>-->
+		</ObjectListItem>
+	</SelectDialog>
+</core:FragmentDefinition>

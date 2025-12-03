@@ -1,0 +1,180 @@
+{
+    "_version": "1.5.0",
+    "sap.app": {
+        "id": "ZGT_MM_REZ",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "sourceTemplate": {
+            "id": "servicecatalog.connectivityComponent",
+            "version": "0.0.0",
+            "toolsId": "ea18b5c0-8f57-4eb7-9407-8a08a10eeb5f"
+        },
+        "dataSources": {
+            "ZGW_GT_MM_DIESEL_RES_SRV": {
+                "uri": "/sap/opu/odata/sap/ZGW_GT_MM_DIESEL_RES_SRV/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "localUri": "localService/ZGW_GT_MM_DIESEL_RES_SRV/metadata.xml"
+                }
+            },
+            "reportModel": {
+				"uri": "/sap/opu/odata/sap/ZGW_GT_MM_DIESEL_RES_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			}
+
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        },
+        "supportedThemes": [
+            "sap_hcb",
+            "sap_belize"
+        ]
+    },
+    "sap.ui5": {
+        "rootView": {
+            "viewName": "ZGT_MM_REZ.view.App",
+            "type": "XML"
+        },
+        "dependencies": {
+            "minUI5Version": "1.30.0",
+            "libs": {
+                "sap.ui.core": {},
+                "sap.m": {},
+                "sap.ui.layout": {},
+                "sap.ushell": {},
+                "sap.collaboration": {},
+                "sap.ui.comp": {},
+                "sap.uxap": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "ZGT_MM_REZ.i18n.i18n"
+                }
+            },
+            "": {
+                "type": "sap.ui.model.odata.v2.ODataModel",
+                "settings": {
+                    "defaultOperationMode": "Server",
+                    "defaultBindingMode": "OneTime",
+                    "defaultCountMode": "Request"
+                },
+                "dataSource": "ZGW_GT_MM_DIESEL_RES_SRV",
+                "preload": true
+            },
+            "reportModel": {
+				"dataSource": "reportModel",
+				"settings": {
+					"metadataUrlParams": {
+						"sap-documentation": "heading"
+					},
+					"defaultBindingMode": "TwoWay",
+					"useBatch": false
+				},
+				"preload": true
+			},
+
+            "IntVehicle": {
+				"type": "sap.ui.model.json.JSONModel",
+				"preload": true
+			},
+			"ExtVehicle": {
+				"type": "sap.ui.model.json.JSONModel",
+				"preload": true
+			},
+             "SelectedVehicleModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"preload": true
+			}
+        },
+        "resources": {
+            "css": [{
+                "uri": "css/style.css"
+            }],
+            "js": [{
+                    "uri": "ScannerAppLibrary/index.min.js"
+                },
+                {
+                    "uri": "ScannerAppLibrary/quagga.min.js"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                 "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "ZGT_MM_REZ.view",
+                "controlId": "app",
+                "controlAggregation": "pages",
+                 "async": true
+            },
+            "targets": {
+                "Rez": {
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "Rez",
+                    "viewId": "Rez",
+                    "viewLevel": 1
+                },
+                "Reports": {
+                    "transition": "slide",
+                    "viewName": "Reports",
+                    "viewId": "Reports",
+                    "viewLevel": 2
+                }
+            },
+            "routes": [
+                {
+                    "name": "Rez",
+                    "pattern": "",
+                    "titleTarget": "",
+                    "greedy": false,
+                    "target": [
+                        "Rez"
+                    ]
+                },
+                {
+                     "name": "Reports",
+                    "pattern": "Reports/{sValue}", 
+                   "target": [
+                        "Reports"
+                    ]
+                }
+
+            ]
+        }
+    },
+    "sap.platform.abap": {
+        "uri": "/sap/bc/ui5_ui5/sap/zgt_mm_rez",
+        "_version": "1.1.0"
+    }
+}

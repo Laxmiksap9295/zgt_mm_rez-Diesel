@@ -1,0 +1,182 @@
+<mvc:View
+   	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns:core="sap.ui.core"
+	xmlns:gt="sap.ui.table"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout"
+	xmlns:ui="sap.ui.table"
+	xmlns:f="sap.f"
+	xmlns:fb="sap.ui.comp.filterbar" 
+    controllerName="ZGT_MM_REZ.controller.Reports" class="sapUiSizeCompact">
+    
+        <Page id="ReportsPage" title="Reports" class="cl_Bgd" showNavButton="true" navButtonPress="onReportsBackPress">
+        	<customHeader>
+			<Toolbar class="cl_header">
+                <Button icon="sap-icon://nav-back" press="onReportsBackPress"/>
+				<Image id="id_logo" width="3.5rem" class="sapUiSmallMarginBegin"/>
+				<ToolbarSpacer/>
+				<Label text="{i18n>ReportTitle}" class="cl_heText"/>
+				<ToolbarSpacer/>
+			</Toolbar>
+		</customHeader>
+        	<f:DynamicPage headerExpanded="true" id="idDynamicPage1" headerPinned="true">
+			<f:header>
+				<f:DynamicPageHeader >
+					<f:content>
+						<fb:FilterBar id="filterbar" showFilterBar="true" useToolbar="false" showClearOnFB="true" clear="onClearFilters" showFilterConfiguration="false" search=".onFilter" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
+							<fb:filterItems>
+								<fb:FilterItem id="id_FilterYearFromDate" name="Year" label="{i18n>FromDate}" mandatory="true" visible="false">
+									<fb:control>
+										 <DatePicker id="fromDate" placeholder="{i18n>FromDate}"  required="true" />
+									</fb:control>
+								</fb:FilterItem>
+								<fb:FilterItem id="id_FilterToDate" name="Data Source Type" label="{i18n>selectDateRange}" mandatory="true">
+									<fb:control>
+										 <DateRangeSelection id="toDate" placeholder="{i18n>selectDateRange}"  required="true"/>
+									</fb:control>
+								</fb:FilterItem>
+								<fb:FilterItem id="id_FilterConsumtionType" name="Group" label="{i18n>ChooseVehicle}">
+                                    <fb:control>
+									<ComboBox id="consumptionTypeSelect"  placeholder="{i18n>ChooseVehicle}">
+                                         <items>
+                                             <core:Item key="INT" text="{i18n>Internal}"/>
+                                             <core:Item key="EXT" text="{i18n>External}"/>
+                                         </items>
+                                     </ComboBox>
+                                    </fb:control>
+								</fb:FilterItem>
+								<fb:FilterItem id="id_FilterStatus" name="Posting Period" label="{i18n>Status}" >
+									<fb:control>
+									<ComboBox id="statusSelect"  placeholder="Select Status">
+                                        <items>                           
+                                            <core:Item key="PendingForApproval" text="{i18n>PendingForApproval}"/>
+                                            <core:Item key="Approved" text="{i18n>Approved}"/>
+                                            <core:Item key="Rejected" text="{i18n>Rejected}"/>
+                                            <core:Item key="FuelIssued" text="{i18n>FuelIssued}"/>
+                                        </items> 
+                                    </ComboBox>
+									</fb:control>
+								</fb:FilterItem>
+								
+							</fb:filterItems>
+						</fb:FilterBar>
+					</f:content>
+					<f:content></f:content>
+				</f:DynamicPageHeader>
+			</f:header>
+            <f:content>
+                  <Table id="reportsTable" items="{ReportsModel>/}" growing="true" growingScrollToLoad="true">
+                    <headerToolbar>
+                        <Toolbar class="cl_TableHeaderToolbar">
+                            <Title text="{i18n>ReportTitle}:"/>
+                            <Title id="idTotalReports" text=""/>
+                             <ToolbarSpacer/>
+                            <SearchField liveChange=".onSearch" change=".onSearch1" width="40%"/>
+                            <ToolbarSpacer/>
+                            <Button icon="sap-icon://download" text="{i18n>Download}" press="onDownloadReports" class="cl_TableHeaderBtn"/>
+                        </Toolbar>
+                    </headerToolbar>
+                    <columns>                       
+                        <Column minScreenWidth="Phone" demandPopin="true" hAlign="Center"><Text text="{i18n>Reservation}"/></Column>
+                        <Column minScreenWidth="Phone" demandPopin="true" hAlign="Center"><Text text="{i18n>CreationDate}"/></Column>
+                        <Column minScreenWidth="Phone" demandPopin="true" hAlign="Center"><Text text="{i18n>ConsumptionType}"/></Column>
+                        <Column minScreenWidth="Phone" demandPopin="true"  hAlign="Left"><Text text="{i18n>MaterialDescription}"/></Column>
+                        <Column minScreenWidth="Phone" demandPopin="true" hAlign="Center"><Text text="{i18n>Quantity}"/></Column>
+                        <Column minScreenWidth="Phone" demandPopin="true" hAlign="Center"><Text text="{i18n>UoM}"/></Column>
+                        <Column minScreenWidth="Phone" demandPopin="true"  hAlign="Left"><Text text="{i18n>WBID}"/></Column>
+                        <Column minScreenWidth="Phone" demandPopin="true" hAlign="Center"><Text text="{i18n>Transporter}"/></Column>
+                        <Column minScreenWidth="Phone" demandPopin="true" hAlign="Center"><Text text="{i18n>VehicleNumber}"/></Column>
+                         <Column minScreenWidth="Phone" demandPopin="true" hAlign="Center"><Text text="{i18n>VehicleOwnerShip}"/></Column>
+                        <Column minScreenWidth="Phone" demandPopin="true" hAlign="Center"><Text text="{i18n>Status}"/></Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>                               
+                                <Text text="{ReportsModel>ResNo}" />
+                                <Text text="{ReportsModel>CreationDate}"/>
+                                <Text text="{ReportsModel>Direction}" />
+                                <Text text="{ReportsModel>Matnr}"/>
+                                <Text text="{ReportsModel>Erfmg}"/>
+                                <Text text="{ReportsModel>Erfme}"/>
+                                <Text text="{ReportsModel>Wbid}" />
+                                <Text text="{ReportsModel>Lifnr}"/>
+                                <Text text="{ReportsModel>Vehno}" />
+                                 <Text text="{ReportsModel>OwnerShip}" />
+                                <Text text="{ReportsModel>Status}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </f:content>
+		</f:DynamicPage>
+        <!-- <content> -->
+           
+
+            <!-- <Toolbar class="cl_Content" width="100%" height="8rem">
+				<HBox>
+                    <Label text="{i18n>FromDate}" required="true" class="cl_FilterText sapUiSmallMarginBeginEnd"/>
+                    <DatePicker id="fromDate" placeholder="{i18n>FromDate}" width="12rem"  class="cl_FilterText sapUiSmallMarginBeginEnd" required="true" />
+                      <Label text="{i18n>ToDate}" required="true" class="cl_FilterText sapUiSmallMarginBeginEnd"/>
+                    <DatePicker id="toDate" placeholder="{i18n>ToDate}" width="12rem"  class="cl_FilterText sapUiSmallMarginBeginEnd" required="true"/>
+                    <Label text="Consumption Type" class="cl_FilterText sapUiSmallMarginBeginEnd" />
+                    <ComboBox id="consumptionTypeSelect" width="12rem" class="cl_FilterTex sapUiSmallMarginBeginEnd" placeholder="{i18n>ChooseVehicle}">
+                        <items>
+                            <core:Item key="I" text="{i18n>Internal}"/>
+                            <core:Item key="E" text="{i18n>External}"/>
+                        </items>
+                    </ComboBox>
+                    <Label text="Status" class="cl_FilterText sapUiSmallMarginBeginEnd" />
+                    <ComboBox id="statusSelect" width="12rem" class="cl_FilterTex sapUiSmallMarginBeginEnd" placeholder="Select Status">
+                        <items>                           
+                            <core:Item key="Pending" text="{i18n>PendingForApproval}"/>
+                            <core:Item key="Approved" text="{i18n>Approved}"/>
+                            <core:Item key="Rejected" text="{i18n>Rejected}"/>
+                            <core:Item key="FuelIssued" text="{i18n>FuelIssued}"/>
+                        </items> 
+                    </ComboBox>
+                    <Button text="{i18n>Go}"  type = "Emphasized" press=".onFilter" class="sapUiSmallMarginBegin"/>
+				</HBox>
+			</Toolbar> -->
+
+
+                <!-- Table -->
+                <!-- <Table id="reportsTable" inset="false" growing="true" growingScrollToLoad="true">
+                    <columns>                       
+                        <Column><Text text="Reservation"/></Column>
+                        <Column><Text text=""/></Column>
+                        <Column><Text text="Creation Date"/></Column>
+                        <Column><Text text="Consumption Type"/></Column>
+                        <Column><Text text="Material Description"/></Column>
+                        <Column><Text text="Quantity"/></Column>
+                        <Column><Text text="UoM"/></Column>
+                        <Column><Text text="WB ID"/></Column>
+                        <Column><Text text="Transporter"/></Column>
+                        <Column><Text text="Vehicle Number"/></Column>
+                         <Column><Text text="Vehicle OwnerShip"/></Column>
+                        <Column><Text text="Status"/></Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>                               
+                                <Text text="{Reservation}" />
+                                <Text text="" />
+                                <Text text="{CreationDate}"/>
+                                <Text text="{ConsumptionType}" />
+                                <Text text="{MatDes}"/>
+                                <Text text="{Qty}"/>
+                                <Text text="{Uom}"/>
+                                <Text text="{WbId}" />
+                                <Text text="{transporter}"/>
+                                <Text text="{VehicleNumber}" />
+                                 <Text text="{VehicleOwnerShip}" />
+                                <Text text="{Status}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table> -->
+            
+        <!-- </content> -->
+    </Page>
+
+</mvc:View>

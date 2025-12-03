@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title="{i18n>ChooseStorageLocation}" class="Dialog_ATSOURCE1 sapUiPopupWithPadding" items="{JMLgort>/}" search="fnFilterLgort" liveChange="fnFilterLgort"
+		confirm="fn_ConfirmLgort" cancel="fnCancel">
+		<!-- <StandardListItem title="{JMLgort>Sloc}" description="{JMLgort>Description}" info="{JMLgort>Quantity}"/> -->
+
+		<ObjectListItem title="{path: 'JMLgort>Sloc',formatter :'ZGT_MM_REZ.model.Formatter.fnLeadingZeros'}" intro="{JMLgort>Description}">
+			<attributes>
+				<ObjectAttribute title="{i18n>Quantity}" text="{JMLgort>Quantity}" class="WordWrapClass"></ObjectAttribute>	
+			</attributes>
+		</ObjectListItem>
+	</SelectDialog>
+</core:FragmentDefinition>

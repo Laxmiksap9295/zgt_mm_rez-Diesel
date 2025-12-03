@@ -1,0 +1,2 @@
+jQuery.sap.require("sap.ui.core.format.DateFormat");jQuery.sap.require("sap.ui.core.format.NumberFormat");jQuery.sap.declare("ZGT_MM_REZ.model.Formatter");ZGT_MM_REZ.model.Formatter={fnLeadingZeros:function(e){if(!isNaN(e)){e=+e;if(e==0){return""}else{return e}}else{return e}}};
+//# sourceMappingURL=Formatter-dbg.js.map
